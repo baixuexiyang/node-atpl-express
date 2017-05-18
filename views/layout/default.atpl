@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{{ include ../widgets/header }}
+</head>
+<body class="container">
+
+	{{- body }}
+	<footer>
+		{{ include ../widgets/footer }}
+	</footer>
+
+	{{ include ../widgets/footerJs }}
+</body>
+</html>

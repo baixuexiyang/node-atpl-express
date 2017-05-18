@@ -1,0 +1,5 @@
+<script src="jsdev/main.js"></script>
+<script src="jsdev/{{= module }}.js"></script>
+<script>
+	require("{{= module }}");
+</script>

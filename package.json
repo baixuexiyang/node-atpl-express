@@ -1,0 +1,8 @@
+{
+  "name": "node-atpl",
+  "main": "server.js",
+  "dependencies": {
+    "node-atpl": "1.1.3",
+    "express": "^4.6.1"
+  }
+}
