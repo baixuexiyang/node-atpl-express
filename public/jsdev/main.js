@@ -41,3 +41,27 @@ require.relative = function(parent) {
         return require(path.join('/'));
     };
 };
+
+require.load = function(scripts, callback) {
+    if(typeof(scripts) != "object") var scripts = [scripts];
+    var HEAD = document.getElementsByTagName("head").item(0) || document.documentElement;
+    var s = new Array(), last = scripts.length - 1,
+    doload = function(i) {
+        s[i] = document.createElement("script");
+        s[i].setAttribute("type","text/javascript");
+        s[i].onload = s[i].onreadystatechange = function() {
+            if(!/*@cc_on!@*/0 || this.readyState == "loaded" || this.readyState == "complete") {
+                this.onload = this.onreadystatechange = null;
+                this.parentNode.removeChild(this);
+                if(i != last) {
+                    doload(i + 1);
+                } else {
+                    if(typeof(callback) == "function") callback();
+                }
+            }
+        }
+        s[i].setAttribute("src",scripts[i]);
+        HEAD.appendChild(s[i]);
+    };
+    doload(0);
+};

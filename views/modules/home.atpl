@@ -1,4 +1,4 @@
 {{ module = 'home' }}
 <section>
-	测试页面
+	{{- name }}, Welcome to use aTpl. 
 </section>

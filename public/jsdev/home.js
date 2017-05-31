@@ -1,3 +1,3 @@
 require.register("home.js", function(module, exports, require){
-    alert('欢迎访问！');
+    console.log('欢迎访问！');
 });
